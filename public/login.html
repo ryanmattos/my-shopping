@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/login-style.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet"> -->
+    <title>Shopping List</title>
+</head>
+<body>
+    
+    <div class="app">
+        <div class="background-blured" id="app-background"></div>
+        <div class="screen-fix">
+            <div class="app-navbar" id="app-navbar">
+                <div class="navbar-content">
+                    <p class="navbar-title">MyShopping</p>
+                    <form action="login.php" method="post">
+                        <div class="navbar-form">
+                            <div class="sl-input-field" id="box-item-1">
+                                <input type="text" name="username" onkeyup="checkInput(this)" class="input-item">
+                                <span class="placeholder-text" onclick="inputFocus(this)">Usuário</span>
+                            </div>
+                            <div class="sl-input-field" id="box-item-1">
+                                <input type="password" name="password" onkeyup="checkInput(this)" class="input-item">
+                                <span class="placeholder-text" onclick="inputFocus(this)">Senha</span>
+                            </div>
+                            <div class="form-bottom">
+                                <div class="links">
+                                    <a href="register" class="form-link">Não possuo conta</a>
+                                </div>
+                                <div class="button">
+                                    <button type="submit" class="submit-button">Entrar</button>
+                                </div>
+                                <div class="button" style="margin-top:10px">
+                                    <a class="submit-button" href='https://api.twitter.com/oauth/authorize'>Login with twitter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="resources/js/script.js"></script>
+    <script>
+        function checkInput(x){
+            if(x.value != ""){
+                x.nextElementSibling.style.bottom = "70%";
+            } else {
+                x.nextElementSibling.style.bottom = "";
+            }
+        }
+    </script>
+</body>

@@ -1,0 +1,22 @@
+.resume-container{
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.resume-container:not(:first-child){
+    padding-top: 15px;
+}
+
+.rl-header{
+    text-align: center;
+}
+
+/* .rl-header > .title{
+
+} */
+
+.rl-header > .subtitle{
+    color: rgba(0,0,0,0.5);
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

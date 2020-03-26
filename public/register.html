@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/login-style.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet"> -->
+    <title>Shopping List</title>
+</head>
+<body>
+    
+    <div class="app">
+        <div class="background-blured" id="app-background"></div>
+        <div class="screen-fix">
+            <div class="app-navbar" id="app-navbar">
+                <div class="navbar-content">
+                    <p class="navbar-title">MyShopping</p>
+                    <p class="warning" id="sl__warning"></p>
+                    <form action="register.php" method="post">
+                        <div class="navbar-form">
+                            <div class="sl-input-field">
+                                <input type="text" name="username" required onkeyup="checkInput(this)" class="input-item">
+                                <span class="placeholder-text" onclick="inputFocus(this)">Usuário</span>
+                            </div>
+                            <div class="sl-input-field">
+                                <input type="email" name="email" required onkeyup="checkInput(this)" class="input-item">
+                                <span class="placeholder-text" onclick="inputFocus(this)">Email</span>
+                            </div>
+                            <div class="sl-input-field">
+                                <input type="password" name="password" minlength="8" required id="input__pass" onkeyup="checkInput(this)" class="input-item">
+                                <span class="placeholder-text" onclick="inputFocus(this)">Senha</span>
+                            </div>
+                            <div class="sl-input-field">
+                                <input type="password" name="rpassword" minlength="8" required id="input__rpass" onkeyup="checkInput(this)" class="input-item">
+                                <span class="placeholder-text" onclick="inputFocus(this)">Repita a senha</span>
+                            </div>
+                            <div class="form-bottom">
+                                <div class="links">
+                                    <a href="login" class="form-link">Já tenho uma conta</a>
+                                </div>
+                                <div class="button">
+                                    <button type="submit" class="submit-button">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="resources/js/script.js"></script>
+    <script>
+        function checkInput(x){
+            if(x.value != ""){
+                x.nextElementSibling.style.bottom = "70%";
+            } else {
+                x.nextElementSibling.style.bottom = "";
+            }
+
+            if(x.id == "input__pass"){
+                let p = document.getElementById('input__pass');
+                let w = document.getElementById('sl__warning');
+                let b = document.getElementsByClassName('submit-button')[0];
+
+                if(p.value.length < 8){
+                    w.textContent = "Senha precisa conter 8 caracteres";
+                    w.style.display = "block";
+                    b.style.opacity = "0.5";
+                    b.disabled = "true";
+                } else {
+                    w.textContent = "";
+                    w.style.display = "none";
+                    b.style.opacity = "1";
+                    b.disabled = "";
+                }
+            }
+
+            if(x.id == "input__rpass"){
+                let p = document.getElementById('input__pass');
+                let rp = document.getElementById('input__rpass');
+                let w = document.getElementById('sl__warning');
+                let b = document.getElementsByClassName('submit-button')[0];
+
+                if(p.value != rp.value){
+                    w.textContent = "As senhas estão diferentes";
+                    w.style.display = "block";
+                    b.style.opacity = "0.5";
+                    b.disabled = "true";
+                } else {
+                    w.textContent = "";
+                    w.style.display = "none";
+                    b.style.opacity = "1";
+                    b.disabled = "";
+                }
+            }
+
+        }
+    </script>
+</body>
